@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello, I'm Jason Snider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./dist/css/main.css" type="text/css">
+  </head>
+  <body>
+
+    <header>
+      <span class="logo">My Website</span>
+      <a id="toggleMenu">Menu</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Hello, I'm Jason Snider</h1>
+      <p>
+        <img class="avatar" src="https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm&s=64" alt="My Avatar"> 
+        Jason Snider is a full stack web and hybrid mobile application developer, systems architect, Linux aficionado, 
+        open source advocate, impromptu DBA and security enthusiast with a sincere passion for building and 
+        advancing knowledge while resolving complex problems  and business challenges through technical 
+        innovation.
+      </p>
+    </main>
+
+    <script>
+
+      var toggleMenu = document.getElementById('toggleMenu');
+      var nav = document.querySelector('nav');
+      toggleMenu.addEventListener(
+        'click',
+        function(){
+          if(nav.style.display=='block'){
+            nav.style.display='none';
+          }else{
+            nav.style.display='block';
+          }
+        }
+      );
+
+    </script>
+
+  </body>
+</html>
