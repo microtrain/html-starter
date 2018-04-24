@@ -30,6 +30,25 @@ gulp.task('build-css', function(){
   return merge(full, min);
 });
 
+
+gulp.task('build-js', function() {
+  var full = gulp.src([
+    'src/js/main.js'
+  ])
+  .pipe(concat('main.js'))
+  .pipe(gulp.dest('dist/js'));
+
+  var min = gulp.src([
+    'src/js/main.js'
+  ])
+  .pipe(concat('main.min.js'))
+  .pipe(uglify())
+  .pipe(gulp.dest('dist/js'));
+
+  return merge(full, min);
+});
+
 gulp.task('watch', function(){
   gulp.watch('./src/scss/**/*.scss', ['build-css']);
+  gulp.watch('./src/js/**/*.js', ['build-js']);
 });
