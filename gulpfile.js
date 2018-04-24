@@ -7,6 +7,30 @@ var concat = require('gulp-concat');
 var merge = require('merge-stream');
 var scss = require('gulp-scss');
 
+function version(){
+  var now = new Date(),
+    Y = now.getFullYear(),
+    m = now.getMonth()+1,
+    d = now.getDate(),
+    H = now.getHours(),
+    i = now.getMinutes(),
+    s = now.getSeconds();
+
+    if(H < 10) {
+        H = '0' + H;
+    }
+
+    if(i < 10) {
+        i = '0' + i;
+    }
+
+    if(s < 10) {
+        s = '0' + s;
+    }
+
+    return String(10000*Y + 100*m + d + '.' + H + i + s);
+}
+
 gulp.task('default', ['watch']);
 
 gulp.task('build-css', function(){
@@ -24,7 +48,7 @@ gulp.task('build-css', function(){
   ])
   . pipe(scss())
   . pipe(cleanCSS())
-  . pipe(concat('main.min.css'))
+  . pipe(concat('main.min.' + version() + '.css'))
   . pipe(gulp.dest('dist/css'));
 
   return merge(full, min);
@@ -41,7 +65,7 @@ gulp.task('build-js', function() {
   var min = gulp.src([
     'src/js/main.js'
   ])
-  .pipe(concat('main.min.js'))
+  .pipe(concat('main.min.' + version() + '.js'))
   .pipe(uglify())
   .pipe(gulp.dest('dist/js'));
 
