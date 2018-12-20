@@ -1,11 +1,11 @@
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 var cleanCSS = require('gulp-clean-css');
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglify-es').default;
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var merge = require('merge-stream');
-var scss = require('gulp-scss');
+var scss = require('gulp-sass');
 
 function version(){
   var now = new Date(),
