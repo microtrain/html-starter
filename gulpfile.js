@@ -48,7 +48,7 @@ gulp.task('build-css', function(){
   ])
   . pipe(scss())
   . pipe(cleanCSS())
-  . pipe(concat('main.min.' + version() + '.css'))
+  . pipe(concat('main.min.css'))
   . pipe(gulp.dest('dist/css'));
 
   return merge(full, min);
@@ -65,7 +65,7 @@ gulp.task('build-js', function() {
   var min = gulp.src([
     'src/js/main.js'
   ])
-  .pipe(concat('main.min.' + version() + '.js'))
+  .pipe(concat('main.min.js'))
   .pipe(uglify())
   .pipe(gulp.dest('dist/js'));
 
